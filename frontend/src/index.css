@@ -1,13 +1,567 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,800;1,300;1,400&display=swap");
+@viewport {
+  width: device-width;
+  zoom: 1;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@-ms-viewport {
+  width: device-width;
+}
+body, html {
+  margin: 0px;
+  padding: 0px;
+ 
+  background: #e7d7e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e7d7e8,
+    #bdc8ee
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e7d7e8,
+    #bdc8ee
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  top: 0px;
+  width: 100%;
+}
+#root{
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.landing {
+  width: 100%;
+  position: relative;
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+.addressText {
+  padding-right: 5px;
+}
+.menuNav {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 888;
+
+}
+.walletButtonDivHolder {
+  position: relative;
+  right: 50px;
+  top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.walletButtonDivOuter {
+  padding: 10px 14px;
+  border-radius: 50px;
+  border: none;
+  background: white;
+}
+.walletButton {
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  background: rgb(218, 218, 218);
+  font-size: 14px;
+  background: #c8a9ca; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #c8a9ca,
+    #9da6c7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #c8a9ca,
+    #9da6c7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.noLink {
+  text-decoration: none;
+  color: black;
+}
+
+.linkStyle {
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 199;
+  top: 0px;
+}
+.popupBackground {
+  background-color: #2a00013b;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  margin: 0px;
+  padding: 0px;
+}
+.innerPersonPopup {
+  z-index: 220;
+  background: #faf0e6;
+  width: 50%;
+  height: auto;
+  margin: 15vh 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.innerPersonInnerPopup {
+  position: relative;
+  width: 86%;
+  margin: 0px 7%;
+  padding: 30px 0px;
+  padding-bottom: 100px;
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.scrollY{
+  overflow-y: scroll;
+}
+
+.column{
+  display: flex;
+  flex-direction: column !important;
+}
+
+.innerPopup {
+  z-index: 220;
+  background: #5a0000;
+  width: 50%;
+  height: 50vh;
+  margin: 25vh 25%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.innerInnerPopup {
+  position: relative;
+  width: 80%;
+  margin: 0px 10%;
+  padding: 20px 0px;
+  overflow-y: scroll;
+}
+.closePopup {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.closePopupText {
+  margin: 0px;
+  padding: 0px;
+  color: white;
+  font-size: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 5px 5px;
+  margin: 3px 0px;
+  border-radius: 10px;
+  border: black 1px solid;
+}
+/* DASHBOARD */
+
+.main {
+  width: 100%;
+  position: relative;
+}
+
+.mainInner {
+  width: 72%;
+  margin: 120px 14%;
+}
+.topMain {
+  width: 100%;
+  text-align: center;
+}
+.topTitleDash {
+  font-size: 20px;
+}
+
+.profileDiv {
+  width: 48%;
+  margin: 1%;
+  background: white;
+  border-radius: 20px;
+}
+.genTextWidget{
+  text-align: left !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+.genTextWidgetTitle{
+  font-size: 15px;
+}
+.noMarginText{
+  margin: 0px;
+}
+
+.boldText{
+  font-weight: 600;
+}
+.boldSmallText{
+  font-weight: bold;
+}
+.votingCard{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width:86%;
+  border-radius: 10px;
+  padding: 15px 7%; 
+}
+.innerVotingCard{
+width: 100%;
+text-align: left;
+}
+.profileDivInner {
+  width: 80%;
+  margin: 0px 10%;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: row;
+}
+.profileImgDiv {
+  width: 38%;
+  margin-right: 2%;
+}
+.tempButton{
+  padding: 4px 5px;
+  background: transparent;
+  border: solid 2px #488144;
+  border-radius: 7px;
+  transition: all 0.6s;
+}
+.tempButton:hover{
+  opacity: 0.5;
+}
+.profileDataDiv {
+  width: 60%;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.nftImg {
+  width: 95%;
+  border-radius: 20px;
+  border: rgb(180, 125, 180) 2px solid;
+ 
+}
+td, th{
+  padding: 2px 10px;
+}
+.genLink{
+  color:rgb(53, 11, 79);
+  transition: all 0.6s;
+  cursor: pointer;
+  border-bottom: solid 1px rgb(53, 11, 79);;
+}
+.genLink:hover{
+  opacity: 0.6;
+}
+.profileDataText {
+  margin: 0px;
+  padding: 1px 0px;
+  font-size: 11px;
+}
+.daosOuterDiv {
+  width: 50%;
+  margin: 0px 25%;
+}
+.daosDiv {
+  border: white 1px solid;
+  margin: 3px 0px;
+  border-radius: 10px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.extraDaoDiv {
+  background: rgba(193, 190, 243, 0.365);
+}
+.daosDiv:hover {
+  opacity: 0.6;
+}
+.smallerText {
+  font-size: 12px;
+}
+.lowerMainDash {
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+.teamsDiv {
+  width: 48%;
+  margin: 1%;
+  background: white;
+  border-radius: 20px;
+}
+.genericWidget{
+  width: 48%;
+  margin: 1%;
+  background: white;
+  border-radius: 20px;
+}
+.genericWidget100{
+  width: 98%;
+  margin: 1%;
+  background: white;
+  border-radius: 20px;
+}
+
+.teamsDivInner {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.teamsDivInner2 {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.teamCard {
+  background: #8ca2e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #e3cde4,
+    #8ca2e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100px;
+  height: auto;
+  margin: 1px 5px;
+  border-radius: 10px;
+}
+.teamCardInner {
+  width: 90%;
+  margin: 0px 5%;
+  padding: 9px 0px;
+  height: 100%;
+  position: relative;
+}
+.teamCardText {
+  font-size: 11px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.widgetTitle {
+  margin: 0px;
+  position: relative;
+  margin-top: -15px;
+  margin-bottom: 6px;
+}
+
+.teamsDivMid {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0px 10%;
+  padding: 10% 0px;
+}
+.adminToolsDiv {
+  margin-top: 13px;
+  width: 100%;
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+}
+.standardTitle {
+  padding-top: 5px;
+}
+.standardTitleGen {
+  padding-top: 15px;
+  margin-bottom: -12px;
+}
+.workingGroupAdminCard {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0px 5px;
+  background: #8ca2e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.workingGroupAdminCard2 {
+  width: 100%;
+  padding: 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0px 5px;
+  background: #8ca2e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.adminToolsDivInner {
+  width: 80%;
+  margin: 0px 10%;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTextGen {
+  margin-top: -3px;
+  color: white;
+}
+.workingGroupAdminCardGen {
+  width: 140px;
+  color: white;
+  height: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 5px;
+  background: #8ca2e8; /* fallback for old browsers */
+  margin: 0px 5px;
+  padding: 0px 9px;
+  display: flex;
+  flex-direction: column;
+
+  background: -webkit-linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #c993cb,
+    #8ca2e8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.restRow {
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+
+.wallet-button {
+  color: white;
+  background: #957bc9 !important;
+  box-shadow: 2px 2px 50px 0 rgba(120, 0, 96, 0.2);
+
+}
+
+canvas {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  margin: 0px;
+  background: #c4b1e7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #d8ceec, #c2d5ff);
+  background: linear-gradient(to right, #d8ceec, #c2d5ff);
+
+}
+
+.mainHome{
+  width: 100%;
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.titleDiv{
+  padding-left: 50px;
+  margin-top: -10px;
+}
+
+.titleHome{
+  font-size: 100px;
+  color: white;
+  font-weight:200;
+  margin: 0px;
+}
+
+.subtitleHome{
+  margin: 0px;
+  color: white;
+  font-size: 20px;
+  margin-left: 7px;
+  margin-top: -14px;
+}
+.menuText{
+  font-weight: 600;
+  color: white;
+  font-size: 17px;
+  border-bottom: white 2px solid;
+  transition: all 0.6s;
+}
+
+.menuText:hover{
+  opacity: 0.6
 }
