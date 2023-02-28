@@ -243,7 +243,6 @@ class SceneThree extends Component {
 
     var molecule = new Molecule()
     scene.add(molecule);
-    console.log("molecule", molecule);
     // renderer.set
     // renderer.setClearColor(0x000000, 0);
     // renderer.setPixelRatio(window.devicePixelRatio);
@@ -259,40 +258,37 @@ class SceneThree extends Component {
   }
 
   componentWillUnmount() {
-    console.log("HMMM");
     this.stop();
     this.mount.removeChild(this.renderer.domElement);
   }
 
   start() {
-    console.log("R", this.frameId);
 
     if (!this.frameId) {
-        console.log("Rs")
 
       this.frameId = requestAnimationFrame(this.animate);
       this.animate()
-      console.log("FRRR", this.frameId)
     }
   }
 
   stop() {
-    console.log("R333")
 
     cancelAnimationFrame(this.frameId);
   }
   resizeCanvasToDisplaySize() {
+    
     const canvas = this.renderer.domElement;
     // look up the size the canvas is being displayed
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-    console.log(canvas.width, width, canvas.height, height)
+    // if(width < 360){
+    //   this.stop()
+    // }
     // adjust displayBuffer size to match
     if (canvas.width !== width || canvas.height !== height) {
       // you must pass false here or three.js sadly fights the browser
 
       this.renderer.setSize(width, height, false);
-      console.log(this.renderer.width)
       this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
 
@@ -301,7 +297,6 @@ class SceneThree extends Component {
   }
 
   animate() {
-    console.log("sssR")
 
     const time = performance.now() * 0.001;
 
@@ -326,6 +321,7 @@ class SceneThree extends Component {
     return (
         <div
           className="three"
+          id="canvas"
           ref={(mount) => {
             this.mount = mount;
           }}

@@ -668,5 +668,13 @@ margin: 0px;
 .titleDiv{
   bottom: 50px;
 }
+#canvas{
+  display: none;
 }
+
+.relative{
+  height:100vh;
+}
+}
+
 
