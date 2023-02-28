@@ -623,6 +623,7 @@ text-align: center;
   transition: all 0.6s;
   text-decoration: none;
   cursor: pointer;
+  color:black;
 }
 .formButton:hover{
   background: #c8a9ca;
