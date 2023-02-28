@@ -120,7 +120,7 @@ class Molecule extends THREE.Object3D{
       this.material = new THREE.PointsMaterial( {
         map:this.dot(),
         blending: THREE.AdditiveBlending,
-        color:"#2c2a32",
+        color:"#2c2a324",
         depthTest:false
       } )
   
@@ -131,7 +131,7 @@ class Molecule extends THREE.Object3D{
     }
     
     dot(size = 32, color = "#FFFFFF"){
-      const sizeH = size * 0.5;
+      const sizeH = size * 2;
       
       const canvas = document.createElement('canvas')
       canvas.width = canvas.height = size
@@ -218,6 +218,7 @@ class SceneThree extends Component {
     // this.map = this.map.bind(this);
     this.stop = this.stop.bind(this);
     this.animate = this.animate.bind(this);
+    
   }
 
   componentDidMount() {
@@ -236,37 +237,48 @@ class SceneThree extends Component {
     ///////////////////////////////////
 
     camera.position.z = 5;
-    camera.position.x = -1.5;
+    // camera.position.x = -1.5;
     renderer.setPixelRatio( window.devicePixelRatio );
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     var molecule = new Molecule()
     scene.add(molecule);
-
-    renderer.setClearColor(0x000000, 0);
+    console.log("molecule", molecule);
+    // renderer.set
+    // renderer.setClearColor(0x000000, 0);
     // renderer.setPixelRatio(window.devicePixelRatio);
 
-    //this.lights = lights
+    // this.lights = lights
     this.scene = scene;
     this.camera = camera;
     this.molecule = molecule;
     this.renderer = renderer;
     this.mount.appendChild(this.renderer.domElement);
+    
     this.start();
   }
 
   componentWillUnmount() {
+    console.log("HMMM");
     this.stop();
     this.mount.removeChild(this.renderer.domElement);
   }
 
   start() {
+    console.log("R", this.frameId);
+
     if (!this.frameId) {
+        console.log("Rs")
+
       this.frameId = requestAnimationFrame(this.animate);
+      this.animate()
+      console.log("FRRR", this.frameId)
     }
   }
 
   stop() {
+    console.log("R333")
+
     cancelAnimationFrame(this.frameId);
   }
   resizeCanvasToDisplaySize() {
@@ -274,12 +286,13 @@ class SceneThree extends Component {
     // look up the size the canvas is being displayed
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;
-
+    console.log(canvas.width, width, canvas.height, height)
     // adjust displayBuffer size to match
     if (canvas.width !== width || canvas.height !== height) {
       // you must pass false here or three.js sadly fights the browser
 
       this.renderer.setSize(width, height, false);
+      console.log(this.renderer.width)
       this.camera.aspect = width / height;
       this.camera.updateProjectionMatrix();
 
@@ -288,7 +301,8 @@ class SceneThree extends Component {
   }
 
   animate() {
-    
+    console.log("sssR")
+
     const time = performance.now() * 0.001;
 
     this.molecule.animate(time);
@@ -299,7 +313,6 @@ class SceneThree extends Component {
       (360 / Math.PI) * Math.atan(tanFOV * (window.innerHeight / windowHeight));
     this.camera.updateProjectionMatrix();
     this.resizeCanvasToDisplaySize();
-
     // this.renderer.setSize(window.innerWidth - 18, window.innerHeight);
     this.renderScene();
     this.frameId = window.requestAnimationFrame(this.animate);
@@ -311,15 +324,12 @@ class SceneThree extends Component {
 
   render() {
     return (
-      <div>
         <div
           className="three"
-          // style={{ height: "110vh", width: "10%" }}
           ref={(mount) => {
             this.mount = mount;
           }}
         />
-      </div>
     );
   }
 }
