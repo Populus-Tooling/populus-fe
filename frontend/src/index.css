@@ -637,3 +637,36 @@ color: #343434;
 font-size: 11px;
 margin: 0px;
   }
+  @media screen and (max-width: 770px) {
+.row{
+  flex-direction: column-reverse;
+  
+}
+.rightCol,
+  .leftCol{
+  width: 100%;
+  margin: 0px;
+  height: 100vh;
+  
+}
+.leftCol{
+  position: absolute;
+  z-index: 100;
+  
+}
+.mainHomeTextDivInner{
+  min-width: 70%;
+    background: rgba(255, 255, 255, 0.506);
+}
+.titleHome{
+  font-size: 60px;
+
+}
+.subtitleHome{
+  font-size: 16px;
+}
+.titleDiv{
+  bottom: 50px;
+}
+}
+
