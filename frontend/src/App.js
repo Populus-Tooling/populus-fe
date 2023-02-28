@@ -73,7 +73,7 @@ const App = (props) => {
               <div className="populusLogoDiv">
                 <img src={logo} alt="populus logo" className="img" />
               </div>
-              <p className="mainText">Sign up for Populus Beta</p>
+              <p className="mainText">Learn about the Populus Community Grant</p>
               <TextField size="small" value={name} onChange={(e) => {
                 setName(e.target.value)
               }} id="outlined-basic" label="Name" variant="outlined" sx={inputStyle} /><br />
